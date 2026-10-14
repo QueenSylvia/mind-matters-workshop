@@ -2,11 +2,42 @@
 
 **Learn Your Feelings, Find Your Voice.**
 
+🔗 **Live site: <https://queensylvia.github.io/mind-matters-workshop/>**
+
 A static website for Mind Matters, an educational wellbeing workshop for Year 3–6 students
 covering emotional resilience, emotional regulation, communication and conflict resolution.
 
 Built as plain HTML, CSS and JavaScript — no build step, no dependencies, no framework.
-Open any `.html` file in a browser, or serve the folder, and it works.
+
+---
+
+## Updating the live site
+
+Edit any file, then run these two commands from this folder:
+
+```bash
+git add -A && git commit -m "Describe what changed"
+```
+
+```bash
+git push
+```
+
+GitHub Pages rebuilds automatically. The change is live in about a minute.
+
+If you don't see it, hard-refresh with **Cmd+Shift+R** — browsers cache CSS aggressively.
+
+### Hosting details
+
+| | |
+|---|---|
+| Repository | <https://github.com/QueenSylvia/mind-matters-workshop> (public) |
+| Host | GitHub Pages, free tier |
+| Branch | `main`, served from the repository root |
+| Build time | ~1 minute after each push |
+
+The repository is public because free GitHub Pages requires it. Commits use a private
+GitHub noreply address rather than a personal email.
 
 ---
 
