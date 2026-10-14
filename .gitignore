@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+._*
+
+# Local tooling — not part of the website
+.claude/
+
+# Editor
+.vscode/
+.idea/

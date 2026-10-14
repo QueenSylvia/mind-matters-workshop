@@ -1,0 +1,390 @@
+/* ==========================================================================
+   MIND MATTERS — base.css
+   Design tokens, reset, typography, layout primitives, motion.
+   Edit tokens here to re-skin the entire site.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. DESIGN TOKENS
+   -------------------------------------------------------------------------- */
+:root {
+  /* ---------------------------------------------------------------------------
+     BRAND PALETTE
+     The six colours below are the Mind Matters brand palette, used exactly as
+     specified. The "ink" and "tint" variants beneath them are derived from
+     those six so that text and UI meet WCAG AA contrast — the brand colours
+     themselves are unchanged and still do all the visible colour work.
+     --------------------------------------------------------------------------- */
+
+  /* --- Brand colours, as specified --- */
+  --mm-teal:          #477F7B;  /* Primary   — Muted Teal      */
+  --mm-rose:          #E8899B;  /* Secondary — Dusty Rose      */
+  --mm-peach:         #FAB7A7;  /* Accent    — Peach           */
+  --mm-canvas:        #FAF7F2;  /* Background— Warm Cream      */
+  --mm-deep:          #263F3D;  /* Dark text — Deep Teal       */
+  --mm-light:         #FAF7F2;  /* Light text on teal surfaces */
+  --mm-border:        #E5C7C5;  /* Border    — Soft Rose-Grey  */
+
+  /* --- Text-safe variants (AA on cream and white) ---
+     Muted Teal and Dusty Rose are too light to carry small text on a cream
+     background, so these slightly deeper versions are used for links, labels,
+     icons and captions. Fills, borders and illustrations use the brand hexes. */
+  --mm-teal-deep:     #3A6A66;  /* teal text, links, button fills, hover */
+  --mm-rose-ink:      #A8465C;  /* rose used as text or an icon           */
+  --mm-peach-ink:     #A85232;  /* peach used as text or an icon          */
+  --mm-body:          #263F3D;  /* body copy — Deep Teal, per the palette */
+  --mm-muted:         #54706E;  /* captions and secondary copy            */
+
+  /* --- Lighter brand variants, for illustration and decoration --- */
+  --mm-teal-light:    #6FA29E;
+  --mm-rose-light:    #F2AEBB;
+  --mm-peach-light:   #FDD5CA;
+
+  /* --- Surface tints, derived from the brand colours --- */
+  --mm-teal-tint:     #E7EFEE;
+  --mm-rose-tint:     #FBEEF0;
+  --mm-peach-tint:    #FDEFE9;
+  --mm-cream-deep:    #F4EEE5;  /* a deeper cream for alternating bands   */
+  --mm-surface:       #FFFFFF;  /* cards and panels sit above the cream   */
+  --mm-surface-alt:   #FFFFFF;
+  --mm-border-soft:   #EFE2E1;  /* faint dividers inside cards            */
+  --mm-border-strong: #AD8482;  /* form inputs — must be perceivable      */
+
+  /* Semantic roles */
+  --mm-accent:        var(--mm-teal);
+  --mm-accent-ink:    var(--mm-light);
+  --mm-focus:         #A8465C;  /* rose ink — visible on cream and on teal */
+
+  /* Typography */
+  --font-display: "Fredoka", "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-hand:    "Caveat", "Bradley Hand", cursive;
+
+  /* Fluid type scale */
+  --fs-display:  clamp(2.6rem, 1.4rem + 4.6vw, 5rem);
+  --fs-h1:       clamp(2.2rem, 1.4rem + 3.2vw, 3.7rem);
+  --fs-h2:       clamp(1.75rem, 1.25rem + 1.9vw, 2.6rem);
+  --fs-h3:       clamp(1.2rem, 1.05rem + 0.6vw, 1.45rem);
+  --fs-h4:       clamp(1.05rem, 1rem + 0.3vw, 1.18rem);
+  --fs-lead:     clamp(1.05rem, 0.98rem + 0.45vw, 1.28rem);
+  --fs-body:     1rem;
+  --fs-small:    0.9rem;
+  --fs-tiny:     0.8rem;
+
+  /* Spacing */
+  --sp-1: 0.25rem;  --sp-2: 0.5rem;   --sp-3: 0.75rem;  --sp-4: 1rem;
+  --sp-5: 1.5rem;   --sp-6: 2rem;     --sp-7: 2.75rem;  --sp-8: 3.5rem;
+  --sp-9: 5rem;     --sp-10: 7rem;
+
+  --section-y: clamp(3.5rem, 2rem + 6vw, 7rem);
+
+  /* Radii — soft, organic */
+  --r-sm:  10px;
+  --r-md:  16px;
+  --r-lg:  24px;
+  --r-xl:  32px;
+  --r-2xl: 44px;
+  --r-pill: 999px;
+  --r-blob: 58% 42% 46% 54% / 48% 44% 56% 52%;
+
+  /* Elevation — soft and low-contrast, never heavy */
+  --sh-xs: 0 1px 2px rgba(38, 63, 61, 0.05);
+  --sh-sm: 0 2px 8px rgba(38, 63, 61, 0.07);
+  --sh-md: 0 6px 20px rgba(38, 63, 61, 0.08);
+  --sh-lg: 0 16px 40px rgba(38, 63, 61, 0.10);
+  --sh-xl: 0 28px 64px rgba(38, 63, 61, 0.13);
+  --sh-teal: 0 12px 28px rgba(71, 127, 123, 0.28);
+
+  /* Layout */
+  --wrap:       1180px;
+  --wrap-wide:  1340px;
+  --wrap-text:  720px;
+  --gutter:     clamp(1.15rem, 0.6rem + 2.4vw, 2.5rem);
+  --header-h:   84px;
+
+  /* Motion */
+  --ease-out:  cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --t-fast: 160ms;
+  --t-med:  280ms;
+  --t-slow: 520ms;
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET
+   -------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 16px);
+}
+
+body {
+  margin: 0;
+  background: var(--mm-canvas);
+  color: var(--mm-body);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 var(--sp-4);
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: var(--mm-deep);
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); line-height: 1.25; }
+h4 { font-size: var(--fs-h4); line-height: 1.35; }
+
+p { margin: 0 0 var(--sp-4); }
+p:last-child { margin-bottom: 0; }
+
+a { color: var(--mm-teal-deep); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--mm-deep); }
+
+img, svg, video { max-width: 100%; height: auto; display: block; }
+
+ul, ol { margin: 0 0 var(--sp-4); padding-left: 1.25rem; }
+li { margin-bottom: var(--sp-2); }
+li:last-child { margin-bottom: 0; }
+
+button, input, select, textarea { font: inherit; color: inherit; }
+
+strong, b { font-weight: 600; color: var(--mm-deep); }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--mm-border);
+  margin: var(--sp-7) 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. ACCESSIBILITY
+   -------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 3px solid var(--mm-focus);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+:focus:not(:focus-visible) { outline: none; }
+
+.skip-link {
+  position: absolute;
+  left: var(--sp-4);
+  top: var(--sp-4);
+  z-index: 2000;
+  transform: translateY(-160%);
+  background: var(--mm-deep);
+  color: var(--mm-light);
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--r-pill);
+  font-weight: 600;
+  font-size: var(--fs-small);
+  text-decoration: none;
+  transition: transform var(--t-fast) var(--ease-out);
+}
+.skip-link:focus { transform: translateY(0); color: #fff; }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+[aria-hidden="true"] { pointer-events: none; }
+
+/* --------------------------------------------------------------------------
+   4. LAYOUT PRIMITIVES
+   -------------------------------------------------------------------------- */
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.wrap--wide { max-width: var(--wrap-wide); }
+.wrap--text { max-width: var(--wrap-text); }
+
+.section { padding-block: var(--section-y); position: relative; }
+.section--tight { padding-block: clamp(2.5rem, 1.5rem + 4vw, 4.5rem); }
+.section--flush-top { padding-top: 0; }
+
+/* Coloured section grounds — the page itself sits on Warm Cream */
+.section--white  { background: var(--mm-surface); }
+.section--cream  { background: var(--mm-cream-deep); }
+.section--teal   { background: var(--mm-teal-tint); }
+.section--rose   { background: var(--mm-rose-tint); }
+.section--peach  { background: var(--mm-peach-tint); }
+
+/* Grids */
+.grid { display: grid; gap: var(--sp-5); }
+.grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.grid--auto { grid-template-columns: repeat(auto-fit, minmax(265px, 1fr)); }
+
+@media (max-width: 980px) {
+  .grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 660px) {
+  .grid--2, .grid--3, .grid--4, .grid--auto { grid-template-columns: minmax(0, 1fr); }
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+  align-items: center;
+}
+.split--reverse > *:first-child { order: 2; }
+@media (max-width: 900px) {
+  .split { grid-template-columns: minmax(0, 1fr); }
+  .split--reverse > *:first-child { order: 0; }
+}
+
+.stack > * + * { margin-top: var(--sp-4); }
+.cluster { display: flex; flex-wrap: wrap; gap: var(--sp-3); align-items: center; }
+
+/* --------------------------------------------------------------------------
+   5. TYPOGRAPHIC HELPERS
+   -------------------------------------------------------------------------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-tiny);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mm-teal-deep);
+  margin: 0 0 var(--sp-3);
+}
+.eyebrow::before {
+  content: "";
+  width: 22px; height: 3px;
+  border-radius: 3px;
+  background: currentColor;
+  flex: none;
+}
+.eyebrow--rose  { color: var(--mm-rose-ink); }
+.eyebrow--peach { color: var(--mm-peach-ink); }
+.eyebrow--deep  { color: var(--mm-deep); }
+.eyebrow--light { color: #FFFFFF; }
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: 1.6;
+  color: var(--mm-body);
+}
+
+.hand {
+  font-family: var(--font-hand);
+  font-size: 1.45em;
+  line-height: 1;
+  color: var(--mm-teal-deep);
+}
+
+.section-head { max-width: 660px; margin-bottom: var(--sp-7); }
+.section-head--center { margin-inline: auto; text-align: center; }
+
+.text-center { text-align: center; }
+.muted { color: var(--mm-muted); }
+.small { font-size: var(--fs-small); }
+.tiny  { font-size: var(--fs-tiny); }
+
+/* Highlighter-style emphasis, echoing the slide's marker shapes */
+.mark {
+  background-image: linear-gradient(to top, var(--mm-peach-light) 0, var(--mm-peach-light) 38%, transparent 38%);
+  padding-inline: 0.08em;
+}
+.mark--rose  { background-image: linear-gradient(to top, var(--mm-rose-light) 0, var(--mm-rose-light) 38%, transparent 38%); }
+.mark--teal  { background-image: linear-gradient(to top, var(--mm-teal-light) 0, var(--mm-teal-light) 38%, transparent 38%); }
+
+.u-purple { color: var(--mm-teal); }
+.u-teal   { color: var(--mm-teal-deep); }
+.u-pink   { color: var(--mm-rose-ink); }
+
+/* --------------------------------------------------------------------------
+   6. DECORATIVE ORGANIC SHAPES
+   -------------------------------------------------------------------------- */
+.blob-bg {
+  position: absolute;
+  z-index: 0;
+  border-radius: var(--r-blob);
+  filter: blur(0.5px);
+  opacity: 0.75;
+  pointer-events: none;
+}
+.blob-bg--teal  { background: var(--mm-teal-tint); }
+.blob-bg--rose  { background: var(--mm-rose-tint); }
+.blob-bg--peach { background: var(--mm-peach-tint); }
+
+.section > .wrap { position: relative; z-index: 1; }
+
+/* --------------------------------------------------------------------------
+   7. MOTION — subtle reveal on scroll
+   -------------------------------------------------------------------------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 620ms var(--ease-out),
+    transform 620ms var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+[data-reveal].is-visible { opacity: 1; transform: none; }
+
+/* No-JS safety: never leave content hidden */
+.no-js [data-reveal] { opacity: 1; transform: none; }
+
+@keyframes mm-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-14px) rotate(2.5deg); }
+}
+@keyframes mm-float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-9px) rotate(-3deg); }
+}
+.float      { animation: mm-float 7s var(--ease-soft) infinite; }
+.float-slow { animation: mm-float-slow 9.5s var(--ease-soft) infinite; }
+.float-delay-1 { animation-delay: -2.2s; }
+.float-delay-2 { animation-delay: -4.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal] { opacity: 1; transform: none; }
+}
+
+/* --------------------------------------------------------------------------
+   8. PRINT
+   -------------------------------------------------------------------------- */
+@media print {
+  .site-header, .site-footer, .cta-band, .blob-bg { display: none !important; }
+  body { color: #000; }
+  a::after { content: " (" attr(href) ")"; font-size: 0.8em; }
+}

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" role="img"
+     aria-label="Illustration of four friendly emotion characters — calm, worried, frustrated and happy — surrounded by colourful organic shapes, representing students learning to name and manage their feelings.">
+  <defs>
+    <radialGradient id="h-teal" cx="34%" cy="26%" r="82%"><stop offset="0%" stop-color="#8FBDB9"/><stop offset="55%" stop-color="#6FA29E"/><stop offset="100%" stop-color="#3A6A66"/></radialGradient>
+    <radialGradient id="h-rose" cx="34%" cy="26%" r="82%"><stop offset="0%" stop-color="#F6C3CC"/><stop offset="55%" stop-color="#E8899B"/><stop offset="100%" stop-color="#B85267"/></radialGradient>
+    <radialGradient id="h-peach" cx="34%" cy="26%" r="82%"><stop offset="0%" stop-color="#FDD5CA"/><stop offset="55%" stop-color="#FAB7A7"/><stop offset="100%" stop-color="#D4795F"/></radialGradient>
+    <radialGradient id="h-deep" cx="34%" cy="26%" r="82%"><stop offset="0%" stop-color="#6C918E"/><stop offset="55%" stop-color="#477F7B"/><stop offset="100%" stop-color="#2A4F4C"/></radialGradient>
+    <linearGradient id="h-star" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6FA29E"/><stop offset="100%" stop-color="#3A6A66"/></linearGradient>
+    <linearGradient id="h-spiral" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F6C3CC"/><stop offset="100%" stop-color="#C96C80"/></linearGradient>
+    <linearGradient id="h-squig" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FDD5CA"/><stop offset="100%" stop-color="#D4795F"/></linearGradient>
+    <radialGradient id="h-shadow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#263F3D" stop-opacity=".15"/><stop offset="100%" stop-color="#263F3D" stop-opacity="0"/></radialGradient>
+  </defs>
+
+  <!-- Ground blobs -->
+  <circle cx="126" cy="430" r="185" fill="#FDEFE9"/>
+  <circle cx="452" cy="150" r="128" fill="#FBEEF0"/>
+  <circle cx="404" cy="428" r="118" fill="#E7EFEE"/>
+
+  <!-- Star outline, top-left -->
+  <g transform="translate(30 34) scale(0.95)">
+    <path d="M60.0 16.0L72.9 44.2L103.7 47.8L80.9 68.8L87.0 99.2L60.0 84.0L33.0 99.2L39.1 68.8L16.3 47.8L47.1 44.2Z" fill="none" stroke="url(#h-star)" stroke-width="16" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+
+  <!-- Spiral, top-right -->
+  <g transform="translate(436 26) scale(0.82)">
+    <path d="M74 12c-26-6-48 8-50 26s18 26 36 20 24-22 8-30-40 2-44 22 14 36 40 36 44-18 42-38"
+          fill="none" stroke="url(#h-spiral)" stroke-width="14" stroke-linecap="round"/>
+  </g>
+
+  <!-- Squiggle, centre -->
+  <g transform="translate(196 236) scale(0.62)">
+    <path d="M12 60c14-40 26 18 40-20s26 46 40 6 26 30 40-8"
+          fill="none" stroke="url(#h-squig)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Character: calm (teal) — large, left -->
+  <ellipse cx="146" cy="500" rx="76" ry="14" fill="url(#h-shadow)"/>
+  <path d="M146 288c50 0 90 35 90 90 0 38-9 58-9 82 0 32-35 50-81 50s-81-18-81-50c0-24-9-44-9-82 0-55 40-90 90-90z" fill="url(#h-teal)"/>
+  <ellipse cx="108" cy="340" rx="29" ry="18" fill="#FFFFFF" opacity=".32" transform="rotate(-22 108 340)"/>
+  <g fill="#263F3D"><ellipse cx="119" cy="400" rx="10.5" ry="12"/><ellipse cx="177" cy="400" rx="10.5" ry="12"/></g>
+  <circle cx="122.4" cy="395.6" r="3.6" fill="#FFFFFF"/><circle cx="180.4" cy="395.6" r="3.6" fill="#FFFFFF"/>
+  <path d="M122 436q24 19 48 0" stroke="#263F3D" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Character: deep teal, right -->
+  <ellipse cx="402" cy="504" rx="62" ry="12" fill="url(#h-shadow)"/>
+  <path d="M402 330c40 0 70 28 70 70 0 28-8 44-8 62 0 26-27 40-62 40s-62-14-62-40c0-18-8-34-8-62 0-42 30-70 70-70z" fill="url(#h-deep)"/>
+  <ellipse cx="374" cy="370" rx="23" ry="14" fill="#FFFFFF" opacity=".3" transform="rotate(-22 374 370)"/>
+  <path d="M362 396q13 -8 26 -2M442 396q-13 -8 -26 -2" stroke="#263F3D" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+  <g fill="#263F3D"><ellipse cx="381" cy="418" rx="8.5" ry="10"/><ellipse cx="423" cy="418" rx="8.5" ry="10"/></g>
+  <circle cx="383.8" cy="414.4" r="3" fill="#FFFFFF"/><circle cx="425.8" cy="414.4" r="3" fill="#FFFFFF"/>
+  <path d="M385 452q17 -11 34 0" stroke="#263F3D" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Character: peach, small top-centre -->
+  <ellipse cx="286" cy="200" rx="44" ry="9" fill="url(#h-shadow)"/>
+  <path d="M286 80c30 0 52 21 52 52 0 20-6 32-6 45 0 19-20 30-46 30s-46-11-46-30c0-13-6-25-6-45 0-31 22-52 52-52z" fill="url(#h-peach)"/>
+  <ellipse cx="266" cy="110" rx="17" ry="11" fill="#FFFFFF" opacity=".38" transform="rotate(-22 266 110)"/>
+  <g fill="#263F3D"><ellipse cx="271" cy="135" rx="6.5" ry="7.5"/><ellipse cx="302" cy="135" rx="6.5" ry="7.5"/></g>
+  <circle cx="273" cy="132" r="2.3" fill="#FFFFFF"/><circle cx="304" cy="132" r="2.3" fill="#FFFFFF"/>
+  <path d="M271 158q15 17 31 0" stroke="#263F3D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="256" cy="153" r="6" fill="#E8899B" opacity=".55"/><circle cx="317" cy="153" r="6" fill="#E8899B" opacity=".55"/>
+
+  <!-- Character: rose, small mid-left -->
+  <ellipse cx="102" cy="232" rx="34" ry="7" fill="url(#h-shadow)"/>
+  <path d="M102 138c24 0 42 17 42 42 0 16-5 25-5 36 0 15-16 24-37 24s-37-9-37-24c0-11-5-20-5-36 0-25 18-42 42-42z" fill="url(#h-rose)"/>
+  <ellipse cx="87" cy="162" rx="13" ry="9" fill="#FFFFFF" opacity=".38" transform="rotate(-22 87 162)"/>
+  <g fill="#263F3D"><ellipse cx="90" cy="182" rx="5.2" ry="6"/><ellipse cx="115" cy="182" rx="5.2" ry="6"/></g>
+  <circle cx="91.6" cy="179.6" r="1.9" fill="#FFFFFF"/><circle cx="116.6" cy="179.6" r="1.9" fill="#FFFFFF"/>
+  <path d="M92 200q11 6 22 -2" stroke="#263F3D" stroke-width="5" stroke-linecap="round" fill="none"/>
+</svg>

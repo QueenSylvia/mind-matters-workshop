@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="g-blob-happy" cx="34%" cy="26%" r="82%">
+      <stop offset="0%" stop-color="#FDD5CA"/>
+      <stop offset="52%" stop-color="#FAB7A7"/>
+      <stop offset="100%" stop-color="#D4795F"/>
+    </radialGradient>
+    <radialGradient id="s-blob-happy" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#263F3D" stop-opacity=".16"/>
+      <stop offset="100%" stop-color="#263F3D" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="100" cy="184" rx="54" ry="11" fill="url(#s-blob-happy)"/>
+  <path d="M100 20c36 0 60 26 60 60 0 20-8 32-8 50 0 24-22 38-52 38s-52-14-52-38c0-18-8-30-8-50 0-34 24-60 60-60z" fill="url(#g-blob-happy)"/>
+  <ellipse cx="74" cy="58" rx="21" ry="13" fill="#FFFFFF" opacity=".34" transform="rotate(-22 74 58)"/>
+  
+  <g fill="#263F3D">
+    <ellipse cx="80" cy="97" rx="7.5" ry="8.5"/>
+    <ellipse cx="121" cy="97" rx="7.5" ry="8.5"/>
+  </g>
+  <circle cx="82.4" cy="94" r="2.6" fill="#FFFFFF"/>
+  <circle cx="123.4" cy="94" r="2.6" fill="#FFFFFF"/>
+  <path d="M80 118q20 22 40 0" stroke="#263F3D" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="62" cy="112" r="7" fill="#E8899B" opacity=".55"/><circle cx="139" cy="112" r="7" fill="#E8899B" opacity=".55"/>
+</svg>
