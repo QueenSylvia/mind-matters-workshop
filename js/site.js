@@ -14,6 +14,7 @@
   var nav  = (window.MM && MM.nav)  || [];
   var cta  = (window.MM && MM.cta)  || { label: 'Contact', href: 'contact.html' };
   var fLinks = (window.MM && MM.footerLinks) || { explore: [], schools: [] };
+  var disc = (window.MM && MM.disclaimer) || null;
 
   var ARROW =
     '<svg class="btn__arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" ' +
@@ -186,6 +187,17 @@
           '</div>' +
 
         '</div>' +
+
+        (disc ?
+          '<div class="footer__notice" role="note">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+                 'stroke-linecap="round" aria-hidden="true">' +
+              '<path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/>' +
+              '<path d="M12 9v4M12 17h.01"/>' +
+            '</svg>' +
+            '<p><strong>' + disc.short + '</strong> ' + disc.full + '</p>' +
+          '</div>'
+        : '') +
 
         '<div class="footer__bottom">' +
           '<p>© ' + year + ' ' + org.name + '. ' +

@@ -1058,3 +1058,52 @@ a.card:hover { color: inherit; }
 @media (max-width: 560px) {
   .jumpnav a { font-size: 0.84rem; padding-inline: 0.8rem; }
 }
+
+/* --------------------------------------------------------------------------
+   14. PROJECT DISCLAIMER
+   Appears in the footer of every page, and above the enquiry form. Must be
+   impossible to miss — the site otherwise reads as a real business.
+   -------------------------------------------------------------------------- */
+.footer__notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-4);
+  margin-top: var(--sp-6);
+  padding: var(--sp-5);
+  border: 1px solid rgba(250, 183, 167, 0.45);
+  border-radius: var(--r-md);
+  background: rgba(250, 183, 167, 0.12);
+}
+.footer__notice svg {
+  flex: none;
+  width: 22px; height: 22px;
+  margin-top: 1px;
+  color: var(--mm-peach);
+}
+.footer__notice p {
+  margin: 0;
+  font-size: var(--fs-small);
+  line-height: 1.6;
+  color: rgba(250, 247, 242, 0.88);
+}
+.footer__notice strong { color: var(--mm-peach); }
+
+/* Same notice, used on a light background above the enquiry form */
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-4);
+  padding: var(--sp-5);
+  margin-bottom: var(--sp-6);
+  border: 1px solid var(--mm-peach);
+  border-radius: var(--r-md);
+  background: var(--mm-peach-tint);
+}
+.notice svg {
+  flex: none;
+  width: 22px; height: 22px;
+  margin-top: 1px;
+  color: var(--mm-peach-ink);
+}
+.notice p { margin: 0; font-size: var(--fs-small); line-height: 1.6; color: var(--mm-deep); }
+.notice strong { color: var(--mm-peach-ink); }

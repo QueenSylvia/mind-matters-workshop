@@ -19,14 +19,32 @@ MM.org = {
     'An educational wellbeing workshop giving Year 3–6 students practical tools to ' +
     'understand their emotions, regulate their reactions and navigate conflict with confidence.',
 
-  // --- Contact details: add real values when confirmed ---
-  email: null,          // e.g. 'hello@mindmatters.com.au'
-  phone: null,          // e.g. '(07) 1234 5678'
-  location: null,       // e.g. 'Brisbane, Queensland'
-  abn: null,            // e.g. 'ABN 00 000 000 000'
+  /* --- Contact details ---
+     ⚠️  THESE ARE PLACEHOLDERS. Mind Matters is a student project, not a real
+     business. The address below is not a working inbox and the phone number is
+     in the range reserved for fictional use in Australia, so it can never
+     connect to a real person. Replace them only if this ever becomes real. */
+  email: 'hello@mindmatters.com',
+  phone: '(07) 5550 1234',
+  location: 'Brisbane, Queensland',
+  abn: null,
 
-  // --- Social: leave as an empty array until accounts exist ---
-  social: []            // e.g. [{ label: 'LinkedIn', url: 'https://...' }]
+  // --- Social: left empty — no accounts exist ---
+  social: []
+};
+
+/* --------------------------------------------------------------------------
+   PROJECT DISCLAIMER
+   Shown in the footer of every page and above the enquiry form. Edit here and
+   it updates everywhere.
+   -------------------------------------------------------------------------- */
+MM.disclaimer = {
+  short: 'Student project — not a real business.',
+  full:
+    'Mind Matters is a concept created for a school assignment. It is not a registered ' +
+    'business and the workshop is not currently available to book. The contact details, ' +
+    'pricing and enquiry form on this site are placeholders — the email address and phone ' +
+    'number are not monitored and will not reach anyone.'
 };
 
 /* --------------------------------------------------------------------------

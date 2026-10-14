@@ -54,6 +54,30 @@ Then visit <http://localhost:8123>.
 
 ---
 
+## Project disclaimer
+
+Mind Matters is a concept created for a school assignment. It is not a registered
+business and the workshop cannot be booked.
+
+Because the site is publicly accessible and reads like a real organisation, a disclaimer
+appears in **two places**:
+
+1. **The footer of every page** — rendered by `js/site.js` from `MM.disclaimer` in
+   `js/content.js`. Edit it there and it updates across the whole site.
+2. **Directly above the enquiry form** on `contact.html`, where someone is most likely
+   to try to make contact.
+
+### The contact details are deliberately non-functional
+
+| Detail | Value | Why it's safe |
+|---|---|---|
+| Email | `hello@mindmatters.com` | Placeholder — not a monitored inbox |
+| Phone | `(07) 5550 1234` | The `5550` range is reserved in Australia for fictional use, so it cannot connect to a real person |
+| Location | Brisbane, Queensland | General area only, no street address |
+
+If Mind Matters ever became real, replace these in `MM.org` (`js/content.js`) and remove
+`MM.disclaimer` plus the `.notice` block in `contact.html`.
+
 ## Folder structure
 
 ```

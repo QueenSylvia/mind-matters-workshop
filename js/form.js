@@ -106,9 +106,10 @@
     if (status) {
       status.className = 'form__status form__status--warn is-visible';
       status.innerHTML =
-        '<strong>Form not connected yet.</strong> Your details were not sent. ' +
-        'This enquiry form is ready to be connected to an email service or inbox — ' +
-        'see the instructions at the top of <code>js/form.js</code>.';
+        '<strong>Nothing was sent.</strong> Mind Matters is a student project for a school ' +
+        'assignment, so this form doesn\'t submit anywhere and no details were stored. ' +
+        'The form is ready to be connected to a real inbox if the workshop ever launches — ' +
+        'see the notes at the top of <code>js/form.js</code>.';
       status.setAttribute('role', 'status');
       status.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
