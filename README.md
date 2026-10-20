@@ -236,91 +236,45 @@ On-page jump links (the pill row under each page heading) are plain HTML — loo
 
 ## What still needs filling in
 
-The site covers everything on the project brief. The gaps below are the only places
-waiting for your content — each is a visible, labelled placeholder. Nothing has been
-invented to fill a space.
+Just two things, both on `prototype.html`:
 
-### Required by the brief
+- **A session photo** — students taking part in an activity
+- **A short workshop video**
 
-**1. Prototype testing** — `prototype.html#testing`
-- Who you tested with (year levels, group size, setting)
-- When and where it happened
-- What you set out to find out
-- Three observations from running the session
+Everything else on the brief is written and live.
 
-**2. Feedback** — `prototype.html#feedback` (and one featured quote on `index.html#feedback`)
-- A quote from a student
-- A quote from a teacher
-- A quote from an observer
-- "What worked well" and "What needed changing"
+### Optional polish
 
-**3. Improvements** — `prototype.html#improvements`
-- Three changes you made, each with the feedback that prompted it
-
-**3. Prototype materials** — `prototype.html`
-- A session photo (students taking part)
-- A short workshop video
-
-Slides and worksheets are done — four watermarked slides and four worksheets are live.
-
-### Needed because schools will ask
-
-**2. About Mind Matters** — `for-schools.html#about`
-- A short background on who created it and why
-
-**3. Safety and compliance** — `for-schools.html#about`
-- Working with Children Check / Blue Card status
-- Public liability insurance details
-- Your child safety and conduct approach
-
-**4. Contact details** — `js/content.js` (`MM.org`) and `contact.html`
-- Email address, phone number, delivery area
-- ABN, if there is one
-- Social accounts, if any exist
-
-**5. The logo** — `assets/logo/`
-
-**6. Print-quality promotional materials** — `assets/downloads/`
+**Print-quality promotional materials** — `assets/downloads/`
 The flyer, brochure and infographic are live on `for-schools.html#materials`, but at
-320–416px wide they're screen-only. Higher-resolution exports (≈2000px or PDF) would
-let schools print them. Replace the files using the same names and the site picks them
-up. See `assets/downloads/README.md`.
+320–416px wide they're screen-only. Higher-resolution exports (≈2000px or PDF) would let
+schools print them. Replace the files using the same names and the site picks them up.
 
-Also: the brochure shows a placeholder phone number (`+123-456-7890`) and the
-infographic a placeholder web address (`www.mindmatter.com`). Both are public now.
+Two fixes needed in the materials themselves, both now public: the brochure shows a
+placeholder phone number (`+123-456-7890`), and the infographic a placeholder web address
+(`www.mindmatter.com`).
 
-### Now complete
+### Complete
 
-**Empathy interviews** (`why-it-matters.html#interviews`) — twelve questions put to
-Year 3–6 teachers before any design work, with three direct quotes and six findings.
-
-**Feedback** (`prototype.html#feedback`) — two Year 3–6 teachers reviewed the full
-prototype against eight questions, and a Year 3 student gave a blunt five-question
-review. Both the praise and the criticism are published, including the 4/5 and 3/5
-ratings.
-
-**Improvements** (`prototype.html#improvements`) — six changes, each traced to the
-specific piece of feedback that prompted it. Clearly marked as committed-to rather than
-already built.
+| Section | What's there |
+|---|---|
+| Empathy interviews | `why-it-matters.html#interviews` — twelve questions to Year 3–6 teachers before design, three direct quotes, six findings |
+| Research & evidence | `why-it-matters.html#research` — a three-step argument: the need now, the consequences later, and that the skills are teachable |
+| Prototype materials | `prototype.html` — four watermarked slides and four worksheets |
+| Feedback | `prototype.html#feedback` — two teacher reviews and a Year 3 student review, published as given, including the 4/5 and 3/5 ratings |
+| Improvements | `prototype.html#improvements` — six changes, each traced to its source, marked as committed-to rather than built |
+| About | `for-schools.html#about` — how the workshop was developed |
+| Contact details | Placeholders, with a disclaimer (see below) |
+| Logo | In the header and footer |
 
 ### Deliberately not included
 
-**Prototype testing** — removed, since no delivery to a class has taken place.
+**Prototype testing** — no delivery to a class has taken place, so there's no testing
+section. Feedback and Improvements cover the review that did happen.
 
-**From the Lean Canvas**, the following are internal business planning and are not on
-the site: cost structure (staffing rates, software, hosting), revenue model, gross
-margin, lifetime value, revenue projections per group size, distribution channels, and
-named competitors. Customer-facing prices are on `for-schools.html#pricing`.
-
-No specific grant amount is published. The commonly quoted $300,000 figure is a ceiling
-for one narrow stream (organisations with an established rural and remote Queensland
-presence), not a general per-project maximum — so the site refers to pursuing government
-funding without naming a number.
-
-**How to fill one in:** search the HTML for text in square brackets, for example
-`[ Student feedback to be added ]`, and replace it. The styling is already in place, so
-the design holds as soon as the words go in. For quotes, also remove the
-`quote--empty` class.
+**Safety and compliance** — removed. A real school-facing provider would need to show a
+Working with Children Check and public liability insurance; as a student project there's
+nothing truthful to put there.
 
 ## Prototype images
 
