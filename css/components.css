@@ -167,18 +167,20 @@
   background: none;
   padding: 0;
   min-width: 0;
-  height: 58px;
+  /* The ring text needs size to stay legible, so the logo takes most of the
+     header's height — 8px of breathing room top and bottom. */
+  height: 68px;
 }
 .logo-slot--filled img {
   height: 100%;
   width: auto;
   display: block;
 }
-.site-header.is-stuck .logo-slot--filled { height: 46px; }
+.site-header.is-stuck .logo-slot--filled { height: 54px; }
 
 @media (max-width: 560px) {
-  .logo-slot--filled { height: 48px; }
-  .site-header.is-stuck .logo-slot--filled { height: 42px; }
+  .logo-slot--filled { height: 54px; }
+  .site-header.is-stuck .logo-slot--filled { height: 46px; }
 }
 
 /* Desktop: links + CTA sit on one row, pushed to the right */
