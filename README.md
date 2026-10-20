@@ -265,22 +265,22 @@ Slides and worksheets are done — four watermarked slides and four worksheets a
 
 ### Needed because schools will ask
 
-**4. About Mind Matters** — `for-schools.html#about`
+**2. About Mind Matters** — `for-schools.html#about`
 - A short background on who created it and why
 
-**5. Safety and compliance** — `for-schools.html#about`
+**3. Safety and compliance** — `for-schools.html#about`
 - Working with Children Check / Blue Card status
 - Public liability insurance details
 - Your child safety and conduct approach
 
-**6. Contact details** — `js/content.js` (`MM.org`) and `contact.html`
+**4. Contact details** — `js/content.js` (`MM.org`) and `contact.html`
 - Email address, phone number, delivery area
 - ABN, if there is one
 - Social accounts, if any exist
 
-**7. The logo** — `assets/logo/`
+**5. The logo** — `assets/logo/`
 
-**8. Print-quality promotional materials** — `assets/downloads/`
+**6. Print-quality promotional materials** — `assets/downloads/`
 The flyer, brochure and infographic are live on `for-schools.html#materials`, but at
 320–416px wide they're screen-only. Higher-resolution exports (≈2000px or PDF) would
 let schools print them. Replace the files using the same names and the site picks them
@@ -289,13 +289,23 @@ up. See `assets/downloads/README.md`.
 Also: the brochure shows a placeholder phone number (`+123-456-7890`) and the
 infographic a placeholder web address (`www.mindmatter.com`). Both are public now.
 
+### Now complete
+
+**Empathy interviews** (`why-it-matters.html#interviews`) — twelve questions put to
+Year 3–6 teachers before any design work, with three direct quotes and six findings.
+
+**Feedback** (`prototype.html#feedback`) — two Year 3–6 teachers reviewed the full
+prototype against eight questions, and a Year 3 student gave a blunt five-question
+review. Both the praise and the criticism are published, including the 4/5 and 3/5
+ratings.
+
+**Improvements** (`prototype.html#improvements`) — six changes, each traced to the
+specific piece of feedback that prompted it. Clearly marked as committed-to rather than
+already built.
+
 ### Deliberately not included
 
-**Prototype testing** — removed, since no testing has taken place. Feedback and
-Improvements remain, reframed around the design process rather than a test session.
-
-**Empathy interview quotes** — the eight written-up findings already satisfy
-"research and evidence".
+**Prototype testing** — removed, since no delivery to a class has taken place.
 
 **From the Lean Canvas**, the following are internal business planning and are not on
 the site: cost structure (staffing rates, software, hosting), revenue model, gross
