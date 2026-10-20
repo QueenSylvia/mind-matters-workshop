@@ -234,14 +234,22 @@ On-page jump links (the pill row under each page heading) are plain HTML — loo
 
 ---
 
-## What still needs filling in
+## Status
 
-Just two things, both on `prototype.html`:
+**Every item on the project brief is written and live.** There are no placeholders left
+on the site.
 
-- **A session photo** — students taking part in an activity
-- **A short workshop video**
-
-Everything else on the brief is written and live.
+| Brief item | Where it lives |
+|---|---|
+| The problem | `index.html` and `why-it-matters.html#problem` |
+| Target audience | `why-it-matters.html#audience` |
+| Research and evidence | `why-it-matters.html#research` — the need now, the consequences later, and that the skills are teachable |
+| Empathy interviews | `why-it-matters.html#interviews` |
+| Feedback | `prototype.html#feedback` and `index.html#feedback` |
+| Improvements | `prototype.html#improvements` |
+| Our Impact | `impact.html` |
+| Our Future | `impact.html#future` |
+| Call to action | Every page, plus the closing section on `index.html` |
 
 ### Optional polish
 
@@ -254,27 +262,21 @@ Two fixes needed in the materials themselves, both now public: the brochure show
 placeholder phone number (`+123-456-7890`), and the infographic a placeholder web address
 (`www.mindmatter.com`).
 
-### Complete
-
-| Section | What's there |
-|---|---|
-| Empathy interviews | `why-it-matters.html#interviews` — twelve questions to Year 3–6 teachers before design, three direct quotes, six findings |
-| Research & evidence | `why-it-matters.html#research` — a three-step argument: the need now, the consequences later, and that the skills are teachable |
-| Prototype materials | `prototype.html` — four watermarked slides and four worksheets |
-| Feedback | `prototype.html#feedback` — two teacher reviews and a Year 3 student review, published as given, including the 4/5 and 3/5 ratings |
-| Improvements | `prototype.html#improvements` — six changes, each traced to its source, marked as committed-to rather than built |
-| About | `for-schools.html#about` — how the workshop was developed |
-| Contact details | Placeholders, with a disclaimer (see below) |
-| Logo | In the header and footer |
-
 ### Deliberately not included
 
 **Prototype testing** — no delivery to a class has taken place, so there's no testing
 section. Feedback and Improvements cover the review that did happen.
 
-**Safety and compliance** — removed. A real school-facing provider would need to show a
-Working with Children Check and public liability insurance; as a student project there's
-nothing truthful to put there.
+**Session photos and video** — these were upload slots from the original design brief,
+not items on the assessment task. They'd require having run the workshop with a class.
+Removed rather than left as empty boxes.
+
+**Safety and compliance** — a real school-facing provider would need a Working with
+Children Check and public liability insurance; as a student project there was nothing
+truthful to put there.
+
+If the workshop is ever delivered to a class, photos would slot naturally into
+`prototype.html` after the worksheets, using the same `.media-frame` markup as the slides.
 
 ## Prototype images
 
