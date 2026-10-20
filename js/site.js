@@ -48,10 +48,14 @@
         '<nav class="nav" aria-label="Main">' +
 
           '<a class="nav__brand" href="index.html" aria-label="' + org.name + ' — home">' +
-            '<span class="logo-slot logo-slot--filled">' +
-              '<img src="assets/logo/mind-matters-logo.png" ' +
-                   'alt="' + org.name + ' — ' + org.slogan + '" ' +
-                   'width="506" height="535">' +
+            /* Horizontal lockup: the hand-and-heart mark, then the name and
+               slogan as live text — far more readable at header size than the
+               circular badge, whose ring text disappears when small. */
+            '<img class="brand__mark" src="assets/logo/mind-matters-mark.png" ' +
+                 'alt="" width="294" height="262">' +
+            '<span class="brand__text">' +
+              '<span class="brand__name">' + org.name + '</span>' +
+              '<span class="brand__slogan">' + org.slogan + '</span>' +
             '</span>' +
           '</a>' +
 

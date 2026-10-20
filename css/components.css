@@ -127,7 +127,10 @@
 }
 .site-header.is-stuck .nav { height: 68px; }
 
-/* ---- Logo placeholder: replace the contents of .logo-slot with your logo ---- */
+/* ---- Brand lockup: hand-and-heart mark + name + slogan ----
+   The full circular logo loses its ring text at header size, so the header
+   uses the mark alongside live text instead. The complete badge still appears
+   in the footer, where there's room for it. */
 .nav__brand {
   display: inline-flex;
   align-items: center;
@@ -135,61 +138,54 @@
   text-decoration: none;
   flex: none;
   border-radius: var(--r-md);
-}
-.logo-slot {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  /* Reserved space for the real Mind Matters logo */
-  min-width: 190px;
-  height: 52px;
-  padding: 0 0.9rem;
-  border: 1.5px dashed var(--mm-teal-light);
-  border-radius: var(--r-md);
-  background: linear-gradient(135deg, var(--mm-teal-tint), var(--mm-surface) 65%);
-  color: var(--mm-teal-deep);
-  font-family: var(--font-display);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-align: center;
-  line-height: 1.15;
-  transition: height var(--t-med) var(--ease-soft), border-color var(--t-fast) var(--ease-soft);
-}
-.nav__brand:hover .logo-slot { border-color: var(--mm-teal); }
-.site-header.is-stuck .logo-slot { height: 44px; }
-.logo-slot img { max-height: 100%; width: auto; }
-/* Real logo in place — no dashed frame, sized by height so it never distorts.
-   The logo's own cream background matches the header, so it blends seamlessly. */
-.logo-slot--filled {
-  border: 0;
-  background: none;
-  padding: 0;
   min-width: 0;
-  /* The ring text needs size to stay legible, so the logo takes most of the
-     header's height — 8px of breathing room top and bottom. */
-  height: 68px;
 }
-.logo-slot--filled img {
-  height: 100%;
+
+.brand__mark {
+  height: 46px;
   width: auto;
   display: block;
-}
-.site-header.is-stuck .logo-slot--filled { height: 54px; }
-
-@media (max-width: 560px) {
-  .logo-slot--filled { height: 54px; }
-  .site-header.is-stuck .logo-slot--filled { height: 46px; }
+  flex: none;
+  transition: height var(--t-med) var(--ease-soft);
 }
 
-/* Desktop: links + CTA sit on one row, pushed to the right */
-.nav__menu {
+.brand__text {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-left: auto;
+  flex-direction: column;
+  justify-content: center;
   min-width: 0;
+}
+
+.brand__name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.005em;
+  color: var(--mm-deep);
+  white-space: nowrap;
+  transition: font-size var(--t-med) var(--ease-soft);
+}
+
+.brand__slogan {
+  font-size: 0.68rem;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  color: var(--mm-teal-deep);
+  white-space: nowrap;
+  margin-top: 2px;
+}
+
+.nav__brand:hover .brand__name { color: var(--mm-teal-deep); }
+
+.site-header.is-stuck .brand__mark { height: 38px; }
+.site-header.is-stuck .brand__name { font-size: 1.18rem; }
+
+@media (max-width: 700px) {
+  .brand__mark { height: 38px; }
+  .brand__name { font-size: 1.12rem; }
+  .brand__slogan { display: none; }   /* too cramped to read on a phone */
 }
 
 .nav__links {
@@ -259,7 +255,6 @@
 }
 @media (max-width: 1320px) {
   .nav__link { padding-inline: 0.45rem; font-size: 0.86rem; }
-  .logo-slot { min-width: 148px; font-size: 0.66rem; letter-spacing: 0.05em; }
   .nav { gap: var(--sp-4); }
 }
 
@@ -720,10 +715,15 @@ a.card:hover { color: inherit; }
   border-top: 1px solid var(--mm-border-soft);
 }
 
-/* Quote slot — ready for real quotes when supplied */
+/* Quote card.
+   Laid out as a flex column so the attribution is pinned to the bottom with
+   margin-top:auto — that keeps attributions on a single line across a row of
+   cards, however unevenly the quotes themselves wrap. The quote mark sits in
+   normal flow rather than absolutely, so there is no dead space above the text. */
 .quote {
-  position: relative;
-  padding: var(--sp-7) var(--sp-6) var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  padding: var(--sp-5);
   background: var(--mm-surface);
   border: 1px solid var(--mm-border);
   border-radius: var(--r-lg);
@@ -731,19 +731,27 @@ a.card:hover { color: inherit; }
 }
 .quote::before {
   content: "";
-  position: absolute;
-  top: var(--sp-5); left: var(--sp-6);
-  width: 34px; height: 26px;
+  display: block;
+  flex: none;
+  width: 26px;
+  height: 20px;
+  margin-bottom: var(--sp-3);
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 26' fill='%23F2AEBB'%3E%3Cpath d='M0 26V13.8C0 6.2 4.6 1 12.2 0l1.4 3.6C9.2 5 7 7.6 7 11.2h6.2V26H0zm20.4 0V13.8C20.4 6.2 25 1 32.6 0L34 3.6C29.6 5 27.4 7.6 27.4 11.2h6.2V26H20.4z'/%3E%3C/svg%3E") no-repeat;
 }
-.quote__text { margin-top: var(--sp-5); font-size: 1.05rem; color: var(--mm-body); }
+.quote__text {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--mm-body);
+}
 .quote__attrib {
-  margin-top: var(--sp-4);
+  margin-top: auto;              /* pins the attribution to the bottom edge */
+  padding-top: var(--sp-4);
   font-size: var(--fs-small);
   font-weight: 600;
   color: var(--mm-deep);
 }
-.quote--empty { border-style: dashed; border-color: var(--mm-teal-light); background: var(--mm-cream-deep); }
+.quote--empty { border-style: dashed; border-color: var(--mm-teal); background: var(--mm-cream-deep); }
 
 /* --------------------------------------------------------------------------
    9. ACCORDION (FAQ)
