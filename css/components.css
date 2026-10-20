@@ -160,12 +160,25 @@
 .nav__brand:hover .logo-slot { border-color: var(--mm-teal); }
 .site-header.is-stuck .logo-slot { height: 44px; }
 .logo-slot img { max-height: 100%; width: auto; }
-/* When a real logo image is dropped in, add class "logo-slot--filled" to remove the dashed frame */
+/* Real logo in place — no dashed frame, sized by height so it never distorts.
+   The logo's own cream background matches the header, so it blends seamlessly. */
 .logo-slot--filled {
   border: 0;
   background: none;
   padding: 0;
   min-width: 0;
+  height: 58px;
+}
+.logo-slot--filled img {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+.site-header.is-stuck .logo-slot--filled { height: 46px; }
+
+@media (max-width: 560px) {
+  .logo-slot--filled { height: 48px; }
+  .site-header.is-stuck .logo-slot--filled { height: 42px; }
 }
 
 /* Desktop: links + CTA sit on one row, pushed to the right */
@@ -973,6 +986,27 @@ a.card:hover { color: inherit; }
   text-transform: uppercase;
   text-align: center;
 }
+/* The footer is deep teal and the logo carries its own cream ground, so it sits
+   in a cream badge. That reads as a deliberate lockup rather than a stray block. */
+.footer__logo-slot--filled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  width: auto;
+  height: auto;
+  padding: var(--sp-4);
+  border: 0;
+  border-radius: var(--r-lg);
+  background: var(--mm-canvas);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+.footer__logo-slot--filled img {
+  height: 92px;
+  width: auto;
+  display: block;
+}
+
 .footer__slogan {
   font-family: var(--font-hand);
   font-size: 1.5rem;

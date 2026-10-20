@@ -48,12 +48,11 @@
         '<nav class="nav" aria-label="Main">' +
 
           '<a class="nav__brand" href="index.html" aria-label="' + org.name + ' — home">' +
-            /* ===== LOGO PLACEHOLDER =========================================
-               To use the real logo, replace the <span> below with:
-                 <img src="assets/logo/mind-matters-logo.svg" alt="Mind Matters">
-               and add the class "logo-slot--filled" to the wrapper.
-               ================================================================ */
-            '<span class="logo-slot">[ Mind Matters Logo ]</span>' +
+            '<span class="logo-slot logo-slot--filled">' +
+              '<img src="assets/logo/mind-matters-logo.png" ' +
+                   'alt="' + org.name + ' — ' + org.slogan + '" ' +
+                   'width="506" height="535">' +
+            '</span>' +
           '</a>' +
 
           '<div class="nav__menu" id="nav-menu">' +
@@ -155,8 +154,10 @@
         '<div class="footer__top">' +
 
           '<div>' +
-            /* ===== LOGO PLACEHOLDER (footer) ===== */
-            '<div class="footer__logo-slot">[ Mind Matters Logo ]</div>' +
+            '<div class="footer__logo-slot footer__logo-slot--filled">' +
+              '<img src="assets/logo/mind-matters-logo.png" ' +
+                   'alt="' + org.name + '" width="506" height="535">' +
+            '</div>' +
             '<p class="footer__slogan">' + org.slogan + '</p>' +
             '<p class="footer__desc">' + org.description + '</p>' +
           '</div>' +
