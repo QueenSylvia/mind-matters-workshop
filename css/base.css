@@ -96,8 +96,8 @@
   --sh-teal: 0 12px 28px rgba(71, 127, 123, 0.28);
 
   /* Layout */
-  --wrap:       1180px;
-  --wrap-wide:  1340px;
+  --wrap:       1180px;   /* all page content shares this left edge */
+  --wrap-wide:  1340px;   /* header and footer only — the nav needs the room */
   --wrap-text:  720px;
   --gutter:     clamp(1.15rem, 0.6rem + 2.4vw, 2.5rem);
   --header-h:   84px;
@@ -220,7 +220,13 @@ hr {
   padding-inline: var(--gutter);
 }
 .wrap--wide { max-width: var(--wrap-wide); }
-.wrap--text { max-width: var(--wrap-text); }
+/* A narrow reading column that still starts on the page's shared left edge.
+   The container keeps the standard width so it aligns with every other
+   section; only its contents are capped to a comfortable measure.
+   Add .text-center to centre the column instead — a deliberate composition. */
+.wrap--text { max-width: var(--wrap); }
+.wrap--text > * { max-width: var(--wrap-text); }
+.wrap--text.text-center > * { margin-inline: auto; }
 
 .section { padding-block: var(--section-y); position: relative; }
 .section--tight { padding-block: clamp(2.5rem, 1.5rem + 4vw, 4.5rem); }

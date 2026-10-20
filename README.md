@@ -352,6 +352,56 @@ Surface tints derived from the brand colours: `--mm-teal-tint` `#E7EFEE`,
    Muted Teal is 4.28:1, which just misses; pure white on the same teal is 4.58:1 and
    passes. The teal is unchanged — only the text colour differs, imperceptibly.
 
+## Design principles (CARP)
+
+The site is built to the four CARP principles, and each is verifiable rather than asserted.
+
+### Contrast
+A deliberate type scale with clear jumps, so hierarchy is obvious at a glance:
+
+| Level | Size |
+|---|---|
+| H1 | 80px |
+| H2 | 42px |
+| Lead | 20px |
+| Body | 16px |
+| Eyebrow | 13px |
+
+The headline is **5× body size**. Colour contrast is separately verified — every text
+element on every page meets WCAG AA against its real rendered background. Warm sections
+(rose, peach) carry emotion and the problem; cool sections (teal) carry evidence,
+solution and calls to action.
+
+### Alignment
+Every section container and every left-aligned section heading shares **one left edge**
+(170px at a 1440px viewport). The hero was originally wider than the content below it,
+so its headline didn't line up with the headings underneath — it now uses the standard
+width. Narrow reading columns start on that same edge rather than being centred.
+
+Centred blocks (`.section-head--center`, `.text-center`) are deliberate compositions
+on a centre axis, not stray misalignment.
+
+The header and footer are the one intentional exception — they use a wider container
+because the nine-item nav needs the room.
+
+### Repetition
+A single component set is reused throughout rather than reinvented per page:
+73 cards, 58 eyebrows, 31 buttons, 30 section heads, 12 journey items, 12 steps,
+9 quotes, 6 stat cards. Four colour variants (`--teal`, `--rose`, `--peach`, `--deep`)
+cycle across all of them. Every value comes from the tokens in `css/base.css`.
+
+### Proximity
+Spacing increases with separation, so grouping is unambiguous:
+
+| Relationship | Gap |
+|---|---|
+| Between cards | 24px |
+| Heading to its content | 44px |
+| Between sections | 112px |
+
+Within cards, a label sits directly above its value; the quote attribution is pinned to
+the card's bottom edge so attributions line up across a row regardless of quote length.
+
 ### How colour is used
 
 Colour carries meaning on this site rather than just decorating it:

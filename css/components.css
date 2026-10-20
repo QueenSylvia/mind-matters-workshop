@@ -188,6 +188,15 @@
   .brand__slogan { display: none; }   /* too cramped to read on a phone */
 }
 
+/* Desktop: links and CTA sit on one row, pushed to the right */
+.nav__menu {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+  min-width: 0;
+}
+
 .nav__links {
   display: flex;
   align-items: center;
