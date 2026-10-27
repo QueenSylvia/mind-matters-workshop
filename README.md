@@ -407,10 +407,18 @@ estimate rather than a quote.
 Ranges live in `LIMITS` at the top of `js/planner.js` — **20–180 minutes** and
 **1–150 students**.
 
-HTML `min`/`max` only constrain the spinner arrows, so values are clamped in three
-places: while typing (for the calculation), on blur and on change (the field itself is
-corrected), with a short note saying why. Clamping deliberately doesn't happen
-mid-keystroke — otherwise typing "150" would snap to 20 the moment you pressed "1".
+HTML `min`/`max` only constrain the spinner arrows, so the limits are enforced in JS —
+and the two bounds behave differently on purpose:
+
+- **The maximum is enforced as you type.** Typing upward through a valid range never
+  exceeds it (`1` → `15` → `150` all pass untouched), so this never interrupts normal
+  typing. Type `500` and it becomes `180` on the keystroke that crosses the line.
+- **The minimum waits until you leave the field.** It can't work the other way: `1` on
+  the way to `150` would snap straight to `20`.
+
+Either correction shows a brief note explaining it, which clears as soon as you retype.
+This matters because the displayed number must always be the number being costed —
+otherwise the field can read `500` while the estimate quietly uses `180`.
 
 ## Design principles (CARP)
 

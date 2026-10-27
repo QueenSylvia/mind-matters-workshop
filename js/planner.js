@@ -154,6 +154,20 @@
     return fixed;
   }
 
+  /* Correct an over-maximum value the moment it is typed.
+     Only the maximum is enforced here: typing upward through a valid range never
+     exceeds it (1 → 15 → 150 all pass), so this never interrupts normal typing.
+     The minimum can't work this way — "1" on the way to "150" would snap to 20. */
+  function capNow(id) {
+    var el = document.getElementById(id);
+    var lim = LIMITS[id];
+    var n = parseInt(el.value, 10);
+    if (!isNaN(n) && n > lim.max) {
+      el.value = lim.max;
+      flagCorrection(el, n, lim.max, lim);
+    }
+  }
+
   function clearNote(id) {
     var note = document.getElementById(id + '-note');
     if (note) { window.clearTimeout(note._t); note.textContent = ''; }
@@ -213,13 +227,15 @@
       if (!el) return;
       el.addEventListener('input', function () {
         clearNote(id);   // a stale "Maximum is 180" shouldn't sit there while retyping
+        if (LIMITS[id]) capNow(id);   // over the maximum is corrected as you type
         update();
       });
-      el.addEventListener('change', update);
       if (LIMITS[id]) {
+        // the minimum waits for blur, so typing "150" isn't snapped to 20 on "1"
         el.addEventListener('blur', function () { clampField(id); update(); });
-        // the spinner arrows and Enter both fire change
         el.addEventListener('change', function () { clampField(id); update(); });
+      } else {
+        el.addEventListener('change', update);
       }
     });
     document.querySelectorAll('input[name="plan-delivery"]').forEach(function (el) {
