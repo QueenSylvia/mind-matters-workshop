@@ -58,6 +58,74 @@
   </div>
 </section>
 
+<!-- ======================= SESSION PLANNER ======================= -->
+<section id="planner" class="section section--teal">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Plan your sessions</p>
+      <h2>Can't spare two hours in one go?</h2>
+      <p class="lead">
+        The workshop runs about two hours, but it doesn't have to happen in one block.
+        Tell us how long your periods are and we'll show you how it splits.
+      </p>
+    </div>
+
+    <div class="planner" data-reveal>
+      <form class="planner__controls" id="planner-form" novalidate>
+        <div class="field">
+          <label for="plan-minutes">How long is each session you can offer?</label>
+          <div class="planner__input">
+            <input type="number" id="plan-minutes" value="60" min="20" max="180" step="5"
+                   inputmode="numeric">
+            <span class="planner__unit">minutes</span>
+          </div>
+          <span class="field__hint">Anything from 20 to 180 minutes.</span>
+        </div>
+
+        <div class="field">
+          <label for="plan-students">How many students?</label>
+          <div class="planner__input">
+            <input type="number" id="plan-students" value="50" min="1" max="150" step="1"
+                   inputmode="numeric">
+            <span class="planner__unit">students</span>
+          </div>
+          <span class="field__hint">Up to 150.</span>
+        </div>
+
+        <fieldset class="fieldset">
+          <legend class="fieldset__legend">Delivery</legend>
+          <div class="radio-row">
+            <label class="radio-chip">
+              <input type="radio" name="plan-delivery" value="in-person" checked>
+              <span>In person</span>
+            </label>
+            <label class="radio-chip">
+              <input type="radio" name="plan-delivery" value="online">
+              <span>Online</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <label class="planner__check">
+          <input type="checkbox" id="plan-printed" checked>
+          <span>Printed worksheets and activity resources</span>
+        </label>
+      </form>
+
+      <div class="planner__output">
+        <div id="planner-result" aria-live="polite"></div>
+        <div class="cluster" style="margin-top:1.5rem">
+          <button class="btn btn--secondary btn--sm" type="button" id="plan-add">
+            Add this plan to my enquiry
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <span class="small" id="planner-added" role="status" style="color:var(--mm-teal-deep);font-weight:600"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="wrap">
     <div class="contact-layout">
@@ -261,5 +329,6 @@
 <script src="js/content.js"></script>
 <script src="js/site.js"></script>
 <script src="js/form.js"></script>
+<script src="js/planner.js"></script>
 </body>
 </html>

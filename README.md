@@ -352,6 +352,38 @@ Surface tints derived from the brand colours: `--mm-teal-tint` `#E7EFEE`,
    Muted Teal is 4.28:1, which just misses; pure white on the same teal is 4.58:1 and
    passes. The teal is unchanged — only the text colour differs, imperceptibly.
 
+## Session planner
+
+`contact.html#planner` — a small calculator for schools that can't give up a two-hour
+block. It takes the length of a period, student numbers and delivery mode, then works out
+how many sessions the workshop splits into, what each session covers, and an indicative
+cost. A button drops the plan into the enquiry message so it arrives with the enquiry.
+
+Everything comes from real figures, so there is nothing to keep in sync by hand:
+
+- **Workshop length** — 120 minutes, the stated "approximately 2 hours"
+- **Session content** — the six stages from How It Works, spread evenly across sessions
+- **Cost** — `MM.pricing` in `js/content.js`
+
+### The pricing formula
+
+**Total = booking fee + group band + ($5 × participants, if printed resources)**
+
+Verified against the Lean Canvas totals for all three bands:
+
+| Group | Band | Calculated | Lean Canvas |
+|---|---|---|---|
+| 1–50 | $375 | $410 – $655 | $410 – $655 |
+| 51–100 | $750 | $1,035 – $1,280 | $1,035 – $1,280 |
+| 101–150 | $1,250 | $1,785 – $2,030 | $1,785 – $2,030 |
+
+Minimums apply ($405 in person, $290 online) and the planner falls back to them if a
+calculated total comes in lower.
+
+Change a price in `js/content.js` and the planner follows. Inputs are clamped (20–180
+minutes, 1–150 students) so it can't produce a nonsense result, and the output is labelled
+an estimate rather than a quote.
+
 ## Design principles (CARP)
 
 The site is built to the four CARP principles, and each is verifiable rather than asserted.
