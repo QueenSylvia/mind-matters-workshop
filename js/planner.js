@@ -124,14 +124,58 @@
       '</p>';
   }
 
+  /* Allowed ranges. The HTML min/max only constrain the spinner arrows, so the
+     values are clamped here too — while typing for the calculation, and written
+     back into the field once the user leaves it. */
+  var LIMITS = {
+    'plan-minutes':  { min: 20, max: 180, fallback: 60 },
+    'plan-students': { min: 1,  max: 150, fallback: 50 }
+  };
+
+  function clamp(id) {
+    var lim = LIMITS[id];
+    var n = parseInt(document.getElementById(id).value, 10);
+    if (isNaN(n)) return lim.fallback;
+    return Math.min(lim.max, Math.max(lim.min, n));
+  }
+
+  /* Correct the field itself, so nobody is left looking at a number that isn't
+     the one being costed. Only runs on blur/change, never mid-keystroke —
+     otherwise typing "150" would snap to 20 the moment you pressed "1". */
+  function clampField(id) {
+    var el = document.getElementById(id);
+    var lim = LIMITS[id];
+    var n = parseInt(el.value, 10);
+    var fixed = isNaN(n) ? lim.fallback : Math.min(lim.max, Math.max(lim.min, n));
+    if (String(fixed) !== el.value) {
+      el.value = fixed;
+      flagCorrection(el, n, fixed, lim);
+    }
+    return fixed;
+  }
+
+  function clearNote(id) {
+    var note = document.getElementById(id + '-note');
+    if (note) { window.clearTimeout(note._t); note.textContent = ''; }
+  }
+
+  function flagCorrection(el, was, now, lim) {
+    var note = document.getElementById(el.id + '-note');
+    if (!note || isNaN(was) || was === now) return;
+    note.textContent = was < lim.min
+      ? 'Minimum is ' + lim.min + '.'
+      : 'Maximum is ' + lim.max + '.';
+    window.clearTimeout(note._t);
+    note._t = window.setTimeout(function () { note.textContent = ''; }, 4000);
+  }
+
   function current() {
-    var mins = parseInt(document.getElementById('plan-minutes').value, 10);
-    var studs = parseInt(document.getElementById('plan-students').value, 10);
-    mins = Math.min(180, Math.max(20, isNaN(mins) ? 60 : mins));
-    studs = Math.min(150, Math.max(1, isNaN(studs) ? 50 : studs));
-    var delivery = (document.querySelector('input[name="plan-delivery"]:checked') || {}).value || 'in-person';
-    var printed = document.getElementById('plan-printed').checked;
-    return { mins: mins, studs: studs, delivery: delivery, printed: printed };
+    return {
+      mins: clamp('plan-minutes'),
+      studs: clamp('plan-students'),
+      delivery: (document.querySelector('input[name="plan-delivery"]:checked') || {}).value || 'in-person',
+      printed: document.getElementById('plan-printed').checked
+    };
   }
 
   function update() {
@@ -166,7 +210,17 @@
     if (!document.getElementById('planner-result')) return;
     ['plan-minutes', 'plan-students', 'plan-printed'].forEach(function (id) {
       var el = document.getElementById(id);
-      if (el) { el.addEventListener('input', update); el.addEventListener('change', update); }
+      if (!el) return;
+      el.addEventListener('input', function () {
+        clearNote(id);   // a stale "Maximum is 180" shouldn't sit there while retyping
+        update();
+      });
+      el.addEventListener('change', update);
+      if (LIMITS[id]) {
+        el.addEventListener('blur', function () { clampField(id); update(); });
+        // the spinner arrows and Enter both fire change
+        el.addEventListener('change', function () { clampField(id); update(); });
+      }
     });
     document.querySelectorAll('input[name="plan-delivery"]').forEach(function (el) {
       el.addEventListener('change', function () {

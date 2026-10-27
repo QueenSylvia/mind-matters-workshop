@@ -380,9 +380,18 @@ Verified against the Lean Canvas totals for all three bands:
 Minimums apply ($405 in person, $290 online) and the planner falls back to them if a
 calculated total comes in lower.
 
-Change a price in `js/content.js` and the planner follows. Inputs are clamped (20–180
-minutes, 1–150 students) so it can't produce a nonsense result, and the output is labelled
-an estimate rather than a quote.
+Change a price in `js/content.js` and the planner follows, and the output is labelled an
+estimate rather than a quote.
+
+### Input limits
+
+Ranges live in `LIMITS` at the top of `js/planner.js` — **20–180 minutes** and
+**1–150 students**.
+
+HTML `min`/`max` only constrain the spinner arrows, so values are clamped in three
+places: while typing (for the calculation), on blur and on change (the field itself is
+corrected), with a short note saying why. Clamping deliberately doesn't happen
+mid-keystroke — otherwise typing "150" would snap to 20 the moment you pressed "1".
 
 ## Design principles (CARP)
 

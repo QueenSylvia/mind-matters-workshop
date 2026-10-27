@@ -749,3 +749,9 @@
   border-top: 2px solid var(--mm-teal) !important;
   padding-top: 0.7rem;
 }
+
+/* Shown briefly when a typed value is corrected back into range */
+.planner__note {
+  color: var(--mm-peach-ink);
+  font-weight: 600;
+}
