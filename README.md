@@ -25,7 +25,26 @@ git push
 
 GitHub Pages rebuilds automatically. The change is live in about a minute.
 
-If you don't see it, hard-refresh with **Cmd+Shift+R** — browsers cache CSS aggressively.
+### Before committing a change, stamp the assets
+
+```bash
+python3 tools/bump-assets.py
+```
+
+GitHub Pages serves CSS and JS with `cache-control: max-age=600`, so for ten minutes
+after a deploy a visitor's browser can keep using the old files — which looks exactly
+like the site being broken. This script puts a fresh `?v=` on every stylesheet and script
+link, making each deploy a new URL the browser has to fetch.
+
+So the full update sequence is:
+
+```bash
+python3 tools/bump-assets.py && git add -A && git commit -m "Describe what changed"
+```
+
+```bash
+git push
+```
 
 ### Hosting details
 
